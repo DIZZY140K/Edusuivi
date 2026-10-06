@@ -1,0 +1,33 @@
+flowchart TB
+    subgraph ClientDevice ["Poste Client (Ordinateur / Mobile du Parent ou Enseignant)"]
+        Browser["Navigateur Web (Chrome, Firefox, Safari)"]
+        UI_Runtime["Runtime Client (HTML5 / CSS3 / Vanilla JS)"]
+        Browser --- UI_Runtime
+    end
+
+    subgraph ServerNode ["Serveur Physique / Virtuel (ex: Machine Locale avec XAMPP sous Windows OS)"]
+        subgraph WebServer ["Serveur Web (Apache HTTP Server 2.4+)"]
+            Apache["Processus Apache"]
+            HTTP_Config["Fichiers .htaccess / Configuration ports (80/443)"]
+            Apache --- HTTP_Config
+        end
+        
+        subgraph AppRuntime ["Moteur d'Application (PHP 8.x)"]
+            PHP_Engine["Moteur PHP 8"]
+            PDO_Extension["Extension PDO MySQL"]
+            AppCode["Fichiers sources php (index.php, admin/, teacher/, parent/)"]
+            PHP_Engine --- PDO_Extension
+            PHP_Engine --- AppCode
+        end
+
+        subgraph DBServer ["Serveur de Base de Données (MySQL / MariaDB)"]
+            MySQL_Engine["Moteur de Base de Données (Port 3306)"]
+            Database["Schéma edusuivi (Tables, Index, Contraintes de clés)"]
+            MySQL_Engine --- Database
+        end
+    end
+
+    %% Connexions physiques/réseaux
+    Browser -- "HTTP / HTTPS (Port 80/443)" --> Apache
+    Apache -- "Interprète / Exécute scripts" --> PHP_Engine
+    PDO_Extension -- "Connexion Socket TCP/IP (Port 3306)" --> MySQL_Engine

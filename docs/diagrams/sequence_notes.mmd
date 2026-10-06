@@ -1,0 +1,34 @@
+sequenceDiagram
+    actor Teacher as Enseignant
+    participant Browser as Navigateur Client
+    participant Server as Serveur PHP (teacher/grades.php)
+    participant DB as Base de Données (MySQL)
+    
+    Teacher->>Browser: Sélectionne Classe, Matière et Période
+    Browser->>Server: HTTP GET /teacher/grades.php?class_id=X&subject_id=Y
+    Server->>DB: Récupère la liste des élèves de la classe
+    DB-->>Server: Données élèves (ID, nom, matricule)
+    Server->>DB: Récupère les notes existantes si saisies
+    DB-->>Server: Liste des notes
+    Server-->>Browser: Affiche la grille de saisie en masse
+    
+    Teacher->>Browser: Remplit les notes et commentaires
+    Teacher->>Browser: Clique sur "Enregistrer toutes les notes"
+    
+    Browser->>Server: HTTP POST /teacher/grades.php (grades[student_id], comments...)
+    Note over Server: requireRole('teacher') & validation des données
+    
+    loop Pour chaque élève
+        Server->>DB: SELECT id FROM grades WHERE student_id=? AND subject_id=? AND period=?
+        DB-->>Server: Retourne l'id (s'il existe)
+        
+        alt La note existe déjà
+            Server->>DB: UPDATE grades SET grade=?, comment=? WHERE id=?
+        else Nouvelle note
+            Server->>DB: INSERT INTO grades (student_id, subject_id, teacher_id, grade, comment...)
+        end
+        DB-->>Server: Confirmation SQL
+    end
+    
+    Server-->>Browser: HTTP 200 OK (Redirection + Message de succès)
+    Browser-->>Teacher: Affiche "X note(s) enregistrée(s) avec succès."

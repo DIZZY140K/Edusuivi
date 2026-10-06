@@ -1,0 +1,112 @@
+flowchart TD
+    START([🚀 Démarrage Application]) --> LOGIN
+
+    subgraph AUTH ["🔐 Authentification"]
+        LOGIN[Accéder à la page de connexion] --> CREDS[Saisir Email + Mot de passe]
+        CREDS --> CHECK_CREDS{Identifiants\nvalides ?}
+        CHECK_CREDS -- Non --> ERR_AUTH[Afficher erreur de connexion]
+        ERR_AUTH --> CREDS
+        CHECK_CREDS -- Oui --> DETECT_ROLE{Quel rôle\nutilisateur ?}
+    end
+
+    DETECT_ROLE -- Admin --> ADMIN_DASH
+    DETECT_ROLE -- Enseignant --> TEACH_DASH
+    DETECT_ROLE -- Parent --> PARENT_DASH
+
+    subgraph ADMIN ["🏫 Espace Administrateur"]
+        ADMIN_DASH([Tableau de bord Admin]) --> ADMIN_ACTION{Choisir une\naction}
+
+        ADMIN_ACTION -- Gérer élèves --> STUD_LIST[Voir la liste des élèves]
+        STUD_LIST --> STUD_CHOICE{Action sur\nles élèves}
+        STUD_CHOICE -- Ajouter --> STUD_FORM[Remplir le formulaire élève]
+        STUD_FORM --> STUD_VALID{Formulaire\nvalide ?}
+        STUD_VALID -- Non --> STUD_ERR[Afficher erreurs de validation]
+        STUD_ERR --> STUD_FORM
+        STUD_VALID -- Oui --> STUD_SAVE[Enregistrer en base de données]
+        STUD_SAVE --> STUD_CONF[Afficher matricule généré]
+        STUD_CHOICE -- Modifier --> EDIT_STUD[Charger données existantes]
+        EDIT_STUD --> STUD_FORM
+        STUD_CHOICE -- Supprimer --> DEL_STUD[Confirmer suppression]
+        DEL_STUD --> STUD_LIST
+
+        ADMIN_ACTION -- Gérer classes --> CLASS_LIST[Voir les classes]
+        CLASS_LIST --> CLASS_CHOICE{Action}
+        CLASS_CHOICE -- Créer --> CLASS_FORM[Remplir nom / niveau / titulaire]
+        CLASS_FORM --> CLASS_SAVE[Créer la classe]
+        CLASS_SAVE --> CLASS_LIST
+        CLASS_CHOICE -- Affecter enseignant --> ASSIGN[Choisir Enseignant + Matière + Classe]
+        ASSIGN --> ASSIGN_SAVE[Enregistrer l'affectation]
+        ASSIGN_SAVE --> CLASS_LIST
+
+        ADMIN_ACTION -- Gérer frais --> FEE_LIST[Voir les frais scolaires]
+        FEE_LIST --> FEE_PAY[Enregistrer un paiement]
+        FEE_PAY --> FEE_RECEIPT[Générer le reçu REC-YYYY-XXXXX]
+        FEE_RECEIPT --> NOTIFY_PARENT[Envoyer notification au parent]
+        NOTIFY_PARENT --> FEE_LIST
+
+        ADMIN_ACTION -- Statistiques --> STATS[Afficher tableaux de bord statistiques]
+        ADMIN_ACTION -- Sauvegarder --> BACKUP[Exporter la base de données]
+    end
+
+    subgraph TEACH ["📚 Espace Enseignant"]
+        TEACH_DASH([Tableau de bord Enseignant]) --> TEACH_ACTION{Choisir une\naction}
+
+        TEACH_ACTION -- Saisir les notes --> GRADE_SEL[Sélectionner Classe + Matière + Période]
+        GRADE_SEL --> GRADE_GRID[Afficher grille de saisie en masse]
+        GRADE_GRID --> GRADE_FILL[Remplir les notes et commentaires]
+        GRADE_FILL --> GRADE_SAVE{Pour chaque élève :\nINSERT ou UPDATE ?}
+        GRADE_SAVE -- Note existante --> UPDATE_GRADE[UPDATE grades ...]
+        GRADE_SAVE -- Nouvelle note --> INSERT_GRADE[INSERT INTO grades ...]
+        UPDATE_GRADE --> GRADE_OK[Confirmer : X notes enregistrées]
+        INSERT_GRADE --> GRADE_OK
+
+        TEACH_ACTION -- Signaler absences --> ABS_SEL[Sélectionner Classe + Date]
+        ABS_SEL --> ABS_LIST[Cocher les élèves absents]
+        ABS_LIST --> ABS_SAVE[Enregistrer les absences]
+        ABS_SAVE --> ABS_JUSTIFY{Justifier\nune absence ?}
+        ABS_JUSTIFY -- Oui --> ABS_REASON[Saisir le motif]
+        ABS_REASON --> ABS_SAVE
+        ABS_JUSTIFY -- Non --> TEACH_DASH
+
+        TEACH_ACTION -- Consulter classes --> VIEW_CLASS[Voir ses classes et matières assignées]
+    end
+
+    subgraph PARENT ["👨‍👩‍👧 Espace Parent"]
+        PARENT_DASH([Tableau de bord Parent]) --> PARENT_ACTION{Consulter}
+
+        PARENT_ACTION -- Notes & Bulletins --> GRADES_VIEW[Voir les notes par période]
+        GRADES_VIEW --> BULLETIN[Télécharger le bulletin PDF]
+
+        PARENT_ACTION -- Absences --> ABS_VIEW[Voir les absences de l'enfant]
+
+        PARENT_ACTION -- Frais scolaires --> FEE_VIEW[Voir l'état des paiements]
+        FEE_VIEW --> RECEIPT_DL[Télécharger le reçu]
+
+        PARENT_ACTION -- Annonces --> ANN_VIEW[Lire les annonces scolaires]
+
+        PARENT_ACTION -- Agenda --> AGENDA_VIEW[Consulter les événements]
+    end
+
+    subgraph COMMON ["💬 Actions communes à tous les rôles"]
+        MSG[Messagerie interne] --> SEND_MSG[Envoyer un message]
+        NOTIF[Consulter les notifications] --> MARK_READ[Marquer comme lues]
+        PROFILE[Gérer son profil] --> LANG[Changer la langue]
+        PROFILE --> THEME[Changer le thème clair/sombre]
+    end
+
+    ADMIN_DASH --> MSG
+    TEACH_DASH --> MSG
+    PARENT_DASH --> MSG
+
+    ADMIN_DASH --> NOTIF
+    TEACH_DASH --> NOTIF
+    PARENT_DASH --> NOTIF
+
+    ADMIN_DASH --> PROFILE
+    TEACH_DASH --> PROFILE
+    PARENT_DASH --> PROFILE
+
+    ADMIN_DASH --> LOGOUT
+    TEACH_DASH --> LOGOUT
+    PARENT_DASH --> LOGOUT
+    LOGOUT([🔚 Déconnexion → retour login])

@@ -1,0 +1,4 @@
+-- ==========================================================
+-- OBSOLÈTE — TOUTES LES TABLES ONT ÉTÉ FUSIONNÉES DANS database.sql
+-- Prière d'importer directement database.sql dans phpMyAdmin.
+-- ==========================================================

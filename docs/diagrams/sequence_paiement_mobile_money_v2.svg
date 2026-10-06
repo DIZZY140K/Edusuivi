@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="920" viewBox="0 0 1300 920">
+<title>Sequence paiement Mobile Money</title>
+<rect width="1300" height="920" fill="#f8fafc"/>
+<text x="650" y="36" fill="#0f172a" text-anchor="middle" style="font-size:20px;font-weight:800;font-family:'Segoe UI',Arial,sans-serif;">EduSuivi — Diagramme de séquence : Paiement Mobile Money</text>
+<text x="650" y="58" fill="#64748b" text-anchor="middle" style="font-size:12px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;">Scénario : le Parent initie un paiement via Mobile Money depuis son espace</text>
+<rect x="50" y="62" width="120" height="48" rx="8" fill="#d97706" stroke="none" stroke-width="1.5"/>
+<text x="110" y="90.0" fill="white" text-anchor="middle" style="font-size:12px;font-weight:700;font-family:'Segoe UI',Arial,sans-serif;">Parent</text>
+<line x1="110" y1="110" x2="110" y2="860" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6 4"/>
+<rect x="300" y="58" width="120" height="52" rx="8" fill="#2563eb" stroke="none" stroke-width="1.5"/>
+<text x="360" y="80.5" fill="white" text-anchor="middle" style="font-size:12px;font-weight:700;font-family:'Segoe UI',Arial,sans-serif;">Application</text>
+<text x="360" y="95.5" fill="white" text-anchor="middle" style="font-size:12px;font-weight:700;font-family:'Segoe UI',Arial,sans-serif;">EduSuivi</text>
+<line x1="360" y1="110" x2="360" y2="860" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="6 4"/>
+<rect x="570" y="58" width="120" height="52" rx="8" fill="#16a34a" stroke="none" stroke-width="1.5"/>
+<text x="630" y="80.5" fill="white" text-anchor="middle" style="font-size:12px;font-weight:700;font-family:'Segoe UI',Arial,sans-serif;">Service</text>
+<text x="630" y="95.5" fill="white" text-anchor="middle" style="font-size:12px;font-weight:700;font-family:'Segoe UI',Arial,sans-serif;">Mobile Money</text>
+<line x1="630" y1="110" x2="630" y2="860" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="6 4"/>
+<rect x="820" y="58" width="120" height="52" rx="8" fill="#7c3aed" stroke="none" stroke-width="1.5"/>
+<text x="880" y="80.5" fill="white" text-anchor="middle" style="font-size:12px;font-weight:700;font-family:'Segoe UI',Arial,sans-serif;">Opérateur</text>
+<text x="880" y="95.5" fill="white" text-anchor="middle" style="font-size:12px;font-weight:700;font-family:'Segoe UI',Arial,sans-serif;">(ex: M-Pesa)</text>
+<line x1="880" y1="110" x2="880" y2="860" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="6 4"/>
+<rect x="1070" y="58" width="120" height="52" rx="8" fill="#475569" stroke="none" stroke-width="1.5"/>
+<text x="1130" y="80.5" fill="white" text-anchor="middle" style="font-size:12px;font-weight:700;font-family:'Segoe UI',Arial,sans-serif;">Base de</text>
+<text x="1130" y="95.5" fill="white" text-anchor="middle" style="font-size:12px;font-weight:700;font-family:'Segoe UI',Arial,sans-serif;">Données</text>
+<line x1="1130" y1="110" x2="1130" y2="860" stroke="#475569" stroke-width="1.5" stroke-dasharray="6 4"/>
+<line x1="110" y1="140" x2="360" y2="140" stroke="#d97706" stroke-width="1.5"/><line x1="360" y1="140" x2="350.5" y2="134.5" stroke="#d97706" stroke-width="1.5"/><line x1="360" y1="140" x2="350.5" y2="145.5" stroke="#d97706" stroke-width="1.5"/>
+<text x="235.0" y="135" fill="#d97706" text-anchor="middle" style="font-size:11px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;">Consulter l&#x27;espace Frais scolaires</text>
+<line x1="360" y1="168" x2="110" y2="168" stroke="#2563eb" stroke-width="1.2" stroke-dasharray="4 3"/><line x1="110" y1="168" x2="119.5" y2="173.5" stroke="#2563eb" stroke-width="1.2"/><line x1="110" y1="168" x2="119.5" y2="162.5" stroke="#2563eb" stroke-width="1.2"/>
+<text x="235.0" y="163" fill="#2563eb" text-anchor="middle" style="font-size:10px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;font-style:italic;">Affiche solde restant + bouton «Payer»</text>
+<rect x="55" y="203" width="230" height="28" rx="4" fill="#fffbeb" stroke="#b45309" stroke-width="1.2"/>
+<text x="170" y="205.0" fill="#b45309" text-anchor="middle" style="font-size:10px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;">Choisit M-Pesa / Airtel /</text><text x="170" y="221.0" fill="#b45309" text-anchor="middle" style="font-size:10px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;">Orange et saisit son numéro</text><text x="170" y="237.0" fill="#b45309" text-anchor="middle" style="font-size:10px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;">+ montant</text>
+<line x1="110" y1="248" x2="360" y2="248" stroke="#d97706" stroke-width="1.5"/><line x1="360" y1="248" x2="350.5" y2="242.5" stroke="#d97706" stroke-width="1.5"/><line x1="360" y1="248" x2="350.5" y2="253.5" stroke="#d97706" stroke-width="1.5"/>
+<text x="235.0" y="243" fill="#d97706" text-anchor="middle" style="font-size:11px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;">Soumettre demande de paiement (opérateur, numéro, montant)</text>
+<line x1="360" y1="278" x2="630" y2="278" stroke="#2563eb" stroke-width="1.5"/><line x1="630" y1="278" x2="620.5" y2="272.5" stroke="#2563eb" stroke-width="1.5"/><line x1="630" y1="278" x2="620.5" y2="283.5" stroke="#2563eb" stroke-width="1.5"/>
+<text x="495.0" y="273" fill="#2563eb" text-anchor="middle" style="font-size:11px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;">Initier transaction (ref, montant, numéro)</text>
+<line x1="630" y1="308" x2="880" y2="308" stroke="#16a34a" stroke-width="1.5"/><line x1="880" y1="308" x2="870.5" y2="302.5" stroke="#16a34a" stroke-width="1.5"/><line x1="880" y1="308" x2="870.5" y2="313.5" stroke="#16a34a" stroke-width="1.5"/>
+<text x="755.0" y="303" fill="#16a34a" text-anchor="middle" style="font-size:11px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;">Envoyer notification USSD/push au téléphone</text>
+<rect x="820" y="338" width="120" height="28" rx="6" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="880" y="352" fill="#7c3aed" text-anchor="middle" style="font-size:10px;font-weight:600;font-family:'Segoe UI',Arial,sans-serif;">PIN saisi par le parent</text>
+<line x1="880" y1="378" x2="630" y2="378" stroke="#7c3aed" stroke-width="1.5"/><line x1="630" y1="378" x2="639.5" y2="383.5" stroke="#7c3aed" stroke-width="1.5"/><line x1="630" y1="378" x2="639.5" y2="372.5" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="755.0" y="373" fill="#7c3aed" text-anchor="middle" style="font-size:11px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;">Confirmation de paiement (statut OK)</text>
+<line x1="630" y1="408" x2="360" y2="408" stroke="#16a34a" stroke-width="1.5"/><line x1="360" y1="408" x2="369.5" y2="413.5" stroke="#16a34a" stroke-width="1.5"/><line x1="360" y1="408" x2="369.5" y2="402.5" stroke="#16a34a" stroke-width="1.5"/>
+<text x="495.0" y="403" fill="#16a34a" text-anchor="middle" style="font-size:11px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;">Réponse : {statut:success, ref_transaction}</text>
+<line x1="360" y1="438" x2="1130" y2="438" stroke="#2563eb" stroke-width="1.5"/><line x1="1130" y1="438" x2="1120.5" y2="432.5" stroke="#2563eb" stroke-width="1.5"/><line x1="1130" y1="438" x2="1120.5" y2="443.5" stroke="#2563eb" stroke-width="1.5"/>
+<text x="745.0" y="433" fill="#2563eb" text-anchor="middle" style="font-size:11px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;">Enregistrer paiement (montant, opérateur, ref, statut)</text>
+<line x1="1130" y1="463" x2="360" y2="463" stroke="#475569" stroke-width="1.2" stroke-dasharray="4 3"/><line x1="360" y1="463" x2="369.5" y2="468.5" stroke="#475569" stroke-width="1.2"/><line x1="360" y1="463" x2="369.5" y2="457.5" stroke="#475569" stroke-width="1.2"/>
+<text x="745.0" y="458" fill="#475569" text-anchor="middle" style="font-size:10px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;font-style:italic;">ID paiement confirmé</text>
+<line x1="360" y1="493" x2="1130" y2="493" stroke="#2563eb" stroke-width="1.5"/><line x1="1130" y1="493" x2="1120.5" y2="487.5" stroke="#2563eb" stroke-width="1.5"/><line x1="1130" y1="493" x2="1120.5" y2="498.5" stroke="#2563eb" stroke-width="1.5"/>
+<text x="745.0" y="488" fill="#2563eb" text-anchor="middle" style="font-size:11px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;">Créer notification «Paiement confirmé»</text>
+<line x1="1130" y1="518" x2="360" y2="518" stroke="#475569" stroke-width="1.2" stroke-dasharray="4 3"/><line x1="360" y1="518" x2="369.5" y2="523.5" stroke="#475569" stroke-width="1.2"/><line x1="360" y1="518" x2="369.5" y2="512.5" stroke="#475569" stroke-width="1.2"/>
+<text x="745.0" y="513" fill="#475569" text-anchor="middle" style="font-size:10px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;font-style:italic;">OK</text>
+<line x1="360" y1="548" x2="110" y2="548" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4 3"/><line x1="110" y1="548" x2="119.5" y2="553.5" stroke="#2563eb" stroke-width="1.5"/><line x1="110" y1="548" x2="119.5" y2="542.5" stroke="#2563eb" stroke-width="1.5"/>
+<text x="235.0" y="543" fill="#2563eb" text-anchor="middle" style="font-size:10px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;font-style:italic;">Afficher reçu + badge de confirmation</text>
+<rect x="50" y="578" width="210" height="36" rx="4" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.2"/>
+<text x="155" y="592.0" fill="#16a34a" text-anchor="middle" style="font-size:10px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;">Recu ref: EDU-XXXXX Statut:</text><text x="155" y="608.0" fill="#16a34a" text-anchor="middle" style="font-size:10px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;">CONFIRME</text>
+<rect x="40" y="628" width="1250" height="80" rx="6" fill="#fff7f7" stroke="#ef4444" stroke-width="1"/>
+<text x="50" y="642" fill="#ef4444" text-anchor="start" style="font-size:10px;font-weight:700;font-family:'Segoe UI',Arial,sans-serif;">alt  [Paiement refusé / timeout]</text>
+<line x1="630" y1="666" x2="360" y2="666" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="4 3"/><line x1="360" y1="666" x2="369.5" y2="671.5" stroke="#ef4444" stroke-width="1.2"/><line x1="360" y1="666" x2="369.5" y2="660.5" stroke="#ef4444" stroke-width="1.2"/>
+<text x="495.0" y="660" fill="#ef4444" text-anchor="middle" style="font-size:10px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;font-style:italic;">Erreur : paiement non abouti</text>
+<line x1="360" y1="686" x2="110" y2="686" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="4 3"/><line x1="110" y1="686" x2="119.5" y2="691.5" stroke="#ef4444" stroke-width="1.2"/><line x1="110" y1="686" x2="119.5" y2="680.5" stroke="#ef4444" stroke-width="1.2"/>
+<text x="235.0" y="680" fill="#ef4444" text-anchor="middle" style="font-size:10px;font-weight:normal;font-family:'Segoe UI',Arial,sans-serif;font-style:italic;">Message d&#x27;erreur — inviter à réessayer</text>
+</svg>

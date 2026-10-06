@@ -1,0 +1,72 @@
+graph LR
+    %% Acteurs
+    Admin((Administrateur))
+    Teacher((Enseignant))
+    Parent((Parent))
+    UserBase((Utilisateur Connecté))
+
+    %% Héritage des acteurs
+    Admin --> UserBase
+    Teacher --> UserBase
+    Parent --> UserBase
+
+    subgraph Base ["Fonctionnalités Communes"]
+        UC_Login([Se connecter / Réinitialiser MDP])
+        UC_Logout([Se déconnecter])
+        UC_Pref([Gérer son profil / Langue & Thème])
+        UC_Msg([Utiliser la messagerie interne])
+        UC_Notif([Consulter les notifications])
+    end
+
+    subgraph AdminActions ["Espace Administration"]
+        UC_GStudents([Gérer les élèves CRUD])
+        UC_GTeachers([Gérer les enseignants CRUD])
+        UC_GParents([Gérer les parents CRUD])
+        UC_GClasses([Gérer les classes & Assignations])
+        UC_GFees([Gérer les frais & Enregistrer les paiements])
+        UC_GAnnouncements([Diffuser des annonces globales])
+        UC_GAgenda([Gérer l'agenda scolaire])
+        UC_Backup([Sauvegarder / Restaurer la BDD])
+        UC_Stats([Consulter les statistiques & Rapports])
+    end
+
+    subgraph TeacherActions ["Espace Enseignant"]
+        UC_GradesInput([Saisir et modifier les notes en masse])
+        UC_AbsencesInput([Signaler et justifier les absences])
+        UC_ConsultClasses([Consulter ses classes & matières])
+    end
+
+    subgraph ParentActions ["Espace Parent (Suivi)"]
+        UC_ConsultGrades([Consulter les notes & Bulletins de ses enfants])
+        UC_ConsultAbsences([Consulter les absences de ses enfants])
+        UC_ConsultFees([Suivre les frais scolaires & Voir les reçus])
+        UC_ConsultAnnouncements([Consulter les annonces de l'école])
+        UC_ConsultAgenda([Consulter l'agenda scolaire])
+    end
+
+    %% Liaisons Acteurs -> Cas d'utilisation
+    UserBase --> UC_Login
+    UserBase --> UC_Logout
+    UserBase --> UC_Pref
+    UserBase --> UC_Msg
+    UserBase --> UC_Notif
+
+    Admin --> UC_GStudents
+    Admin --> UC_GTeachers
+    Admin --> UC_GParents
+    Admin --> UC_GClasses
+    Admin --> UC_GFees
+    Admin --> UC_GAnnouncements
+    Admin --> UC_GAgenda
+    Admin --> UC_Backup
+    Admin --> UC_Stats
+
+    Teacher --> UC_GradesInput
+    Teacher --> UC_AbsencesInput
+    Teacher --> UC_ConsultClasses
+
+    Parent --> UC_ConsultGrades
+    Parent --> UC_ConsultAbsences
+    Parent --> UC_ConsultFees
+    Parent --> UC_ConsultAnnouncements
+    Parent --> UC_ConsultAgenda

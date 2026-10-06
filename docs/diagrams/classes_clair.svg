@@ -1,0 +1,412 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2800" height="2000" viewBox="0 0 2800 2000" role="img" aria-label="EduSuivi - Diagramme de classes">
+<defs>
+  <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+    <path d="M 0 0 L 14 7 L 0 14 z" fill="#475569"/>
+  </marker>
+  <marker id="arrowBlue" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+    <path d="M 0 0 L 14 7 L 0 14 z" fill="#2563eb"/>
+  </marker>
+  <marker id="arrowGreen" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+    <path d="M 0 0 L 14 7 L 0 14 z" fill="#0f766e"/>
+  </marker>
+  <marker id="arrowLime" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+    <path d="M 0 0 L 14 7 L 0 14 z" fill="#16a34a"/>
+  </marker>
+  <marker id="arrowPurple" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+    <path d="M 0 0 L 14 7 L 0 14 z" fill="#7c3aed"/>
+  </marker>
+  <marker id="arrowOrange" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+    <path d="M 0 0 L 14 7 L 0 14 z" fill="#d97706"/>
+  </marker>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+    <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.10"/>
+  </filter>
+</defs>
+
+<!-- Fond -->
+<rect width="2800" height="2000" fill="#f8fafc"/>
+
+<!-- Titre -->
+<text x="80" y="58" fill="#0f172a" font-size="40" font-weight="800" font-family="Segoe UI, Arial, sans-serif">EduSuivi — Diagramme de Classes (mis à jour)</text>
+<text x="82" y="96" fill="#64748b" font-size="20" font-family="Segoe UI, Arial, sans-serif">École secondaire · Absences par matière · Titulaire d'une seule classe</text>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- LÉGENDE -->
+<!-- ═══════════════════════════════════════════════ -->
+<rect x="80" y="115" width="2640" height="54" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+<rect x="100" y="126" width="28" height="28" rx="6" fill="#2563eb"/><text x="136" y="146" fill="#334155" font-size="17" font-family="Segoe UI, Arial, sans-serif" font-weight="600">Utilisateurs</text>
+<rect x="290" y="126" width="28" height="28" rx="6" fill="#0f766e"/><text x="326" y="146" fill="#334155" font-size="17" font-family="Segoe UI, Arial, sans-serif" font-weight="600">Structure pédagogique</text>
+<rect x="560" y="126" width="28" height="28" rx="6" fill="#16a34a"/><text x="596" y="146" fill="#334155" font-size="17" font-family="Segoe UI, Arial, sans-serif" font-weight="600">Suivi académique</text>
+<rect x="800" y="126" width="28" height="28" rx="6" fill="#7c3aed"/><text x="836" y="146" fill="#334155" font-size="17" font-family="Segoe UI, Arial, sans-serif" font-weight="600">Finances</text>
+<rect x="980" y="126" width="28" height="28" rx="6" fill="#d97706"/><text x="1016" y="146" fill="#334155" font-size="17" font-family="Segoe UI, Arial, sans-serif" font-weight="600">Communication</text>
+<rect x="1200" y="126" width="28" height="28" rx="6" fill="#64748b"/><text x="1236" y="146" fill="#334155" font-size="17" font-family="Segoe UI, Arial, sans-serif" font-weight="600">Système</text>
+<text x="1450" y="146" fill="#475569" font-size="16" font-family="Segoe UI, Arial, sans-serif">  PK = Clé primaire    FK = Clé étrangère    →  = association    * = plusieurs    1 = un seul</text>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- RANGÉE 1 : Utilisateurs centraux -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<!-- [User] -->
+<g filter="url(#shadow)">
+  <rect x="1060" y="190" width="340" height="230" rx="14" fill="#fff" stroke="#93c5fd" stroke-width="2.5"/>
+  <rect x="1060" y="190" width="340" height="52" rx="14" fill="#2563eb"/>
+  <rect x="1060" y="228" width="340" height="14" fill="#2563eb"/>
+  <text x="1080" y="225" fill="#fff" font-size="24" font-weight="800" font-family="Segoe UI, Arial, sans-serif">User</text>
+  <text x="1080" y="270" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="1080" y="296" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">     name</text>
+  <text x="1080" y="322" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">     email  (UNIQUE)</text>
+  <text x="1080" y="348" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">     role  (admin / teacher / parent)</text>
+  <text x="1080" y="374" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">     password, reset_token</text>
+  <text x="1080" y="400" fill="#94a3b8" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-style="italic">⭐ Entité centrale</text>
+</g>
+
+<!-- [UserPreference] -->
+<g filter="url(#shadow)">
+  <rect x="1500" y="190" width="320" height="200" rx="14" fill="#fff" stroke="#93c5fd" stroke-width="2.5"/>
+  <rect x="1500" y="190" width="320" height="52" rx="14" fill="#2563eb"/>
+  <rect x="1500" y="228" width="320" height="14" fill="#2563eb"/>
+  <text x="1520" y="225" fill="#fff" font-size="22" font-weight="800" font-family="Segoe UI, Arial, sans-serif">UserPreference</text>
+  <text x="1520" y="270" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK/FK  user_id</text>
+  <text x="1520" y="296" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">       lang  (fr/ln/sw/kg)</text>
+  <text x="1520" y="322" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">       theme  (dark/light)</text>
+  <text x="1520" y="348" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">       notifications_enabled</text>
+</g>
+
+<!-- [ActivityLog] -->
+<g filter="url(#shadow)">
+  <rect x="620" y="190" width="320" height="200" rx="14" fill="#fff" stroke="#cbd5e1" stroke-width="2.5"/>
+  <rect x="620" y="190" width="320" height="52" rx="14" fill="#64748b"/>
+  <rect x="620" y="228" width="320" height="14" fill="#64748b"/>
+  <text x="640" y="225" fill="#fff" font-size="22" font-weight="800" font-family="Segoe UI, Arial, sans-serif">ActivityLog</text>
+  <text x="640" y="270" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="640" y="296" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  user_id  (opt.)</text>
+  <text x="640" y="322" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    action, details</text>
+  <text x="640" y="348" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    ip_address, created_at</text>
+</g>
+
+<!-- Rel: User → UserPreference (1-1) -->
+<line x1="1400" y1="280" x2="1500" y2="280" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+<rect x="1420" y="258" width="64" height="28" rx="7" fill="#dbeafe" stroke="#93c5fd"/>
+<text x="1452" y="278" fill="#1d4ed8" font-size="15" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">1 — 1</text>
+
+<!-- Rel: ActivityLog → User -->
+<line x1="940" y1="280" x2="1060" y2="280" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="962" y="258" width="96" height="28" rx="7" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="1010" y="278" fill="#475569" font-size="15" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">0..* — 1</text>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- RANGÉE 2 : Structure pédagogique -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<!-- [Student] -->
+<g filter="url(#shadow)">
+  <rect x="100" y="510" width="340" height="260" rx="14" fill="#fff" stroke="#5eead4" stroke-width="2.5"/>
+  <rect x="100" y="510" width="340" height="52" rx="14" fill="#0f766e"/>
+  <rect x="100" y="548" width="340" height="14" fill="#0f766e"/>
+  <text x="120" y="545" fill="#fff" font-size="24" font-weight="800" font-family="Segoe UI, Arial, sans-serif">Student</text>
+  <text x="120" y="588" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="120" y="614" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    matricule  (UNIQUE)</text>
+  <text x="120" y="640" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    first_name, last_name</text>
+  <text x="120" y="666" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    date_of_birth, gender</text>
+  <text x="120" y="692" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  class_id</text>
+  <text x="120" y="718" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  parent_id  (opt.)</text>
+  <text x="120" y="744" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    school_year</text>
+</g>
+
+<!-- [Class] -->
+<g filter="url(#shadow)">
+  <rect x="530" y="510" width="360" height="260" rx="14" fill="#fff" stroke="#5eead4" stroke-width="2.5"/>
+  <rect x="530" y="510" width="360" height="52" rx="14" fill="#0f766e"/>
+  <rect x="530" y="548" width="360" height="14" fill="#0f766e"/>
+  <text x="550" y="545" fill="#fff" font-size="24" font-weight="800" font-family="Segoe UI, Arial, sans-serif">Class</text>
+  <text x="550" y="588" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="550" y="614" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    name, level</text>
+  <text x="550" y="640" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  teacher_id  → titulaire (0..1)</text>
+  <text x="550" y="666" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    school_year</text>
+  <text x="550" y="692" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    room, max_students</text>
+  <text x="550" y="726" fill="#ef4444" font-size="16" font-family="Segoe UI, Arial, sans-serif" font-weight="700">⚠ Un prof = titulaire d'1 seule classe</text>
+  <text x="550" y="752" fill="#94a3b8" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-style="italic">Scientifique A / Littéraire B …</text>
+</g>
+
+<!-- [Subject] -->
+<g filter="url(#shadow)">
+  <rect x="980" y="510" width="310" height="150" rx="14" fill="#fff" stroke="#5eead4" stroke-width="2.5"/>
+  <rect x="980" y="510" width="310" height="52" rx="14" fill="#0f766e"/>
+  <rect x="980" y="548" width="310" height="14" fill="#0f766e"/>
+  <text x="1000" y="545" fill="#fff" font-size="24" font-weight="800" font-family="Segoe UI, Arial, sans-serif">Subject</text>
+  <text x="1000" y="588" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="1000" y="614" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    name</text>
+  <text x="1000" y="640" fill="#94a3b8" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-style="italic">Maths, Français, …</text>
+</g>
+
+<!-- [TeacherAssignment] -->
+<g filter="url(#shadow)">
+  <rect x="1380" y="510" width="380" height="210" rx="14" fill="#fff" stroke="#5eead4" stroke-width="2.5"/>
+  <rect x="1380" y="510" width="380" height="52" rx="14" fill="#0f766e"/>
+  <rect x="1380" y="548" width="380" height="14" fill="#0f766e"/>
+  <text x="1400" y="545" fill="#fff" font-size="22" font-weight="800" font-family="Segoe UI, Arial, sans-serif">TeacherAssignment</text>
+  <text x="1400" y="588" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="1400" y="614" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  teacher_id  → User</text>
+  <text x="1400" y="640" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  class_id   → Class</text>
+  <text x="1400" y="666" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  subject_id → Subject</text>
+  <text x="1400" y="692" fill="#94a3b8" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-style="italic">UNIQUE (teacher_id, class_id, subject_id)</text>
+  <text x="1400" y="714" fill="#94a3b8" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-style="italic">Un prof peut enseigner plusieurs cours</text>
+</g>
+
+<!-- Rel: Student → Class (*.1) -->
+<line x1="440" y1="640" x2="530" y2="640" stroke="#0f766e" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+<rect x="448" y="618" width="68" height="28" rx="7" fill="#ccfbf1" stroke="#5eead4"/>
+<text x="482" y="638" fill="#0f766e" font-size="15" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">* — 1</text>
+
+<!-- Rel: Student → User (parent) -->
+<path d="M 270 510 L 270 430 L 1130 430 L 1230 420" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#arrowBlue)"/>
+<rect x="610" y="408" width="80" height="28" rx="7" fill="#dbeafe" stroke="#93c5fd"/>
+<text x="650" y="428" fill="#1d4ed8" font-size="15" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">parent</text>
+
+<!-- Rel: Class → User (titulaire) -->
+<path d="M 710 510 L 710 450 L 1230 450 L 1230 420" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#arrowBlue)"/>
+<rect x="870" y="428" width="96" height="28" rx="7" fill="#fee2e2" stroke="#fca5a5"/>
+<text x="918" y="448" fill="#dc2626" font-size="15" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">titulaire</text>
+
+<!-- Rel: TeacherAssignment → Subject -->
+<line x1="1380" y1="596" x2="1290" y2="590" stroke="#0f766e" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+
+<!-- Rel: TeacherAssignment → Class -->
+<path d="M 1570 510 L 1570 470 L 710 470 L 710 510" fill="none" stroke="#0f766e" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+
+<!-- Rel: TeacherAssignment → User (teacher) -->
+<path d="M 1570 510 L 1570 440 L 1230 440 L 1230 420" fill="none" stroke="#0f766e" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- RANGÉE 3 : Suivi académique -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<!-- [Grade] -->
+<g filter="url(#shadow)">
+  <rect x="100" y="920" width="360" height="240" rx="14" fill="#fff" stroke="#86efac" stroke-width="2.5"/>
+  <rect x="100" y="920" width="360" height="52" rx="14" fill="#16a34a"/>
+  <rect x="100" y="958" width="360" height="14" fill="#16a34a"/>
+  <text x="120" y="955" fill="#fff" font-size="24" font-weight="800" font-family="Segoe UI, Arial, sans-serif">Grade</text>
+  <text x="120" y="995" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="120" y="1021" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  student_id</text>
+  <text x="120" y="1047" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  subject_id</text>
+  <text x="120" y="1073" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  teacher_id</text>
+  <text x="120" y="1099" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    grade / max_grade / period</text>
+  <text x="120" y="1125" fill="#94a3b8" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-style="italic">1er / 2ème / 3ème Trimestre</text>
+</g>
+
+<!-- [Absence] — MISE À JOUR avec subject_id obligatoire -->
+<g filter="url(#shadow)">
+  <rect x="540" y="920" width="380" height="270" rx="14" fill="#fff" stroke="#86efac" stroke-width="2.5"/>
+  <rect x="540" y="920" width="380" height="52" rx="14" fill="#16a34a"/>
+  <rect x="540" y="958" width="380" height="14" fill="#16a34a"/>
+  <text x="560" y="955" fill="#fff" font-size="24" font-weight="800" font-family="Segoe UI, Arial, sans-serif">Absence</text>
+  <text x="560" y="995" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="560" y="1021" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  student_id</text>
+  <text x="560" y="1047" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  subject_id  ← lié à la matière du cours</text>
+  <text x="560" y="1073" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    date</text>
+  <text x="560" y="1099" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    justified  (0/1)</text>
+  <text x="560" y="1125" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    reason, recorded_by</text>
+  <text x="560" y="1155" fill="#ef4444" font-size="15" font-weight="700" font-family="Segoe UI, Arial, sans-serif">UNIQUE (student_id, subject_id, date)</text>
+  <text x="560" y="1175" fill="#94a3b8" font-size="13" font-family="Segoe UI, Arial, sans-serif" font-style="italic">Prof de cours enregistre / titulaire justifie</text>
+</g>
+
+<!-- [StudentRanking] -->
+<g filter="url(#shadow)">
+  <rect x="1010" y="920" width="360" height="240" rx="14" fill="#fff" stroke="#86efac" stroke-width="2.5"/>
+  <rect x="1010" y="920" width="360" height="52" rx="14" fill="#16a34a"/>
+  <rect x="1010" y="958" width="360" height="14" fill="#16a34a"/>
+  <text x="1030" y="955" fill="#fff" font-size="22" font-weight="800" font-family="Segoe UI, Arial, sans-serif">StudentRanking</text>
+  <text x="1030" y="995" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="1030" y="1021" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  student_id</text>
+  <text x="1030" y="1047" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  class_id</text>
+  <text x="1030" y="1073" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    average, rank_position</text>
+  <text x="1030" y="1099" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    period, school_year</text>
+  <text x="1030" y="1125" fill="#94a3b8" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-style="italic">UNIQUE (student_id, period, year)</text>
+</g>
+
+<!-- [SmartAlert] -->
+<g filter="url(#shadow)">
+  <rect x="1460" y="920" width="340" height="210" rx="14" fill="#fff" stroke="#cbd5e1" stroke-width="2.5"/>
+  <rect x="1460" y="920" width="340" height="52" rx="14" fill="#64748b"/>
+  <rect x="1460" y="958" width="340" height="14" fill="#64748b"/>
+  <text x="1480" y="955" fill="#fff" font-size="22" font-weight="800" font-family="Segoe UI, Arial, sans-serif">SmartAlert</text>
+  <text x="1480" y="995" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="1480" y="1021" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    alert_type</text>
+  <text x="1480" y="1047" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    threshold_value</text>
+  <text x="1480" y="1073" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    is_active</text>
+  <text x="1480" y="1099" fill="#94a3b8" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-style="italic">grade_drop / repeated_absence / fees</text>
+</g>
+
+<!-- Rel: Grade → Student -->
+<line x1="280" y1="920" x2="280" y2="770" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowLime)"/>
+<rect x="240" y="838" width="80" height="28" rx="7" fill="#dcfce7" stroke="#86efac"/>
+<text x="280" y="858" fill="#15803d" font-size="15" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">* — 1</text>
+
+<!-- Rel: Grade → Subject -->
+<path d="M 460 920 L 460 880 L 1135 880 L 1135 660" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowLime)"/>
+<rect x="760" y="858" width="90" height="28" rx="7" fill="#dcfce7" stroke="#86efac"/>
+<text x="805" y="878" fill="#15803d" font-size="15" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">matière</text>
+
+<!-- Rel: Absence → Student -->
+<line x1="730" y1="920" x2="400" y2="770" stroke="#16a34a" stroke-width="2.5" stroke-dasharray="7 4" marker-end="url(#arrowLime)"/>
+<rect x="520" y="838" width="80" height="28" rx="7" fill="#dcfce7" stroke="#86efac"/>
+<text x="560" y="858" fill="#15803d" font-size="15" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">* — 1</text>
+
+<!-- Rel: Absence → Subject (NOUVEAU — mis en évidence) -->
+<path d="M 730 980 L 1135 980 L 1135 660" fill="none" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowLime)"/>
+<rect x="890" y="958" width="130" height="30" rx="8" fill="#fee2e2" stroke="#fca5a5"/>
+<text x="955" y="978" fill="#dc2626" font-size="15" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">📌 par matière</text>
+
+<!-- Rel: StudentRanking → Student -->
+<path d="M 1190 920 L 1190 870 L 270 870 L 270 770" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowLime)"/>
+<rect x="690" y="848" width="80" height="28" rx="7" fill="#dcfce7" stroke="#86efac"/>
+<text x="730" y="868" fill="#15803d" font-size="15" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">élève</text>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- RANGÉE 4 : Finances -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<!-- [FeeType] -->
+<g filter="url(#shadow)">
+  <rect x="100" y="1330" width="340" height="230" rx="14" fill="#fff" stroke="#c4b5fd" stroke-width="2.5"/>
+  <rect x="100" y="1330" width="340" height="52" rx="14" fill="#7c3aed"/>
+  <rect x="100" y="1368" width="340" height="14" fill="#7c3aed"/>
+  <text x="120" y="1365" fill="#fff" font-size="24" font-weight="800" font-family="Segoe UI, Arial, sans-serif">FeeType</text>
+  <text x="120" y="1405" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="120" y="1431" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    name, amount</text>
+  <text x="120" y="1457" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    description</text>
+  <text x="120" y="1483" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    school_year, is_active</text>
+  <text x="120" y="1509" fill="#94a3b8" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-style="italic">Minéval, Inscription …</text>
+</g>
+
+<!-- [StudentFee] -->
+<g filter="url(#shadow)">
+  <rect x="530" y="1330" width="360" height="210" rx="14" fill="#fff" stroke="#c4b5fd" stroke-width="2.5"/>
+  <rect x="530" y="1330" width="360" height="52" rx="14" fill="#7c3aed"/>
+  <rect x="530" y="1368" width="360" height="14" fill="#7c3aed"/>
+  <text x="550" y="1365" fill="#fff" font-size="24" font-weight="800" font-family="Segoe UI, Arial, sans-serif">StudentFee</text>
+  <text x="550" y="1405" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="550" y="1431" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  student_id</text>
+  <text x="550" y="1457" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  fee_type_id</text>
+  <text x="550" y="1483" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    amount_due, school_year</text>
+</g>
+
+<!-- [FeePayment] -->
+<g filter="url(#shadow)">
+  <rect x="980" y="1330" width="380" height="260" rx="14" fill="#fff" stroke="#c4b5fd" stroke-width="2.5"/>
+  <rect x="980" y="1330" width="380" height="52" rx="14" fill="#7c3aed"/>
+  <rect x="980" y="1368" width="380" height="14" fill="#7c3aed"/>
+  <text x="1000" y="1365" fill="#fff" font-size="24" font-weight="800" font-family="Segoe UI, Arial, sans-serif">FeePayment</text>
+  <text x="1000" y="1405" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="1000" y="1431" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  student_fee_id</text>
+  <text x="1000" y="1457" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  student_id</text>
+  <text x="1000" y="1483" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    amount_paid  (en FC)</text>
+  <text x="1000" y="1509" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    payment_currency, exchange_rate</text>
+  <text x="1000" y="1535" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    receipt_number, payment_date</text>
+  <text x="1000" y="1561" fill="#94a3b8" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-style="italic">cash / Orange Money / M-Pesa …</text>
+</g>
+
+<!-- [PaymentReminder] -->
+<g filter="url(#shadow)">
+  <rect x="1460" y="1330" width="360" height="230" rx="14" fill="#fff" stroke="#c4b5fd" stroke-width="2.5"/>
+  <rect x="1460" y="1330" width="360" height="52" rx="14" fill="#7c3aed"/>
+  <rect x="1460" y="1368" width="360" height="14" fill="#7c3aed"/>
+  <text x="1480" y="1365" fill="#fff" font-size="22" font-weight="800" font-family="Segoe UI, Arial, sans-serif">PaymentReminder</text>
+  <text x="1480" y="1405" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="1480" y="1431" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  student_id</text>
+  <text x="1480" y="1457" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  student_fee_id</text>
+  <text x="1480" y="1483" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  sent_by  → User</text>
+  <text x="1480" y="1509" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    sent_at, method</text>
+</g>
+
+<!-- Rel finances -->
+<line x1="530" y1="1435" x2="440" y2="1435" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+<rect x="448" y="1413" width="72" height="28" rx="7" fill="#ede9fe" stroke="#c4b5fd"/>
+<text x="484" y="1433" fill="#6d28d9" font-size="15" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">type</text>
+
+<line x1="980" y1="1435" x2="890" y2="1435" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+<rect x="895" y="1413" width="80" height="28" rx="7" fill="#ede9fe" stroke="#c4b5fd"/>
+<text x="935" y="1433" fill="#6d28d9" font-size="15" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">paiement</text>
+
+<line x1="1460" y1="1435" x2="1360" y2="1435" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+<rect x="1363" y="1413" width="80" height="28" rx="7" fill="#ede9fe" stroke="#c4b5fd"/>
+<text x="1403" y="1433" fill="#6d28d9" font-size="15" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">rappel</text>
+
+<!-- StudentFee → Student -->
+<path d="M 710 1330 L 710 1280 L 270 1280 L 270 1160" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- RANGÉE 5 : Communication (droite) -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<!-- [Announcement] -->
+<g filter="url(#shadow)">
+  <rect x="2060" y="510" width="360" height="210" rx="14" fill="#fff" stroke="#fde68a" stroke-width="2.5"/>
+  <rect x="2060" y="510" width="360" height="52" rx="14" fill="#d97706"/>
+  <rect x="2060" y="548" width="360" height="14" fill="#d97706"/>
+  <text x="2080" y="545" fill="#fff" font-size="22" font-weight="800" font-family="Segoe UI, Arial, sans-serif">Announcement</text>
+  <text x="2080" y="588" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="2080" y="614" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  author_id → User</text>
+  <text x="2080" y="640" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    title, content</text>
+  <text x="2080" y="666" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    target, FK target_class_id</text>
+</g>
+
+<!-- [Message] -->
+<g filter="url(#shadow)">
+  <rect x="2060" y="770" width="360" height="230" rx="14" fill="#fff" stroke="#fde68a" stroke-width="2.5"/>
+  <rect x="2060" y="770" width="360" height="52" rx="14" fill="#d97706"/>
+  <rect x="2060" y="808" width="360" height="14" fill="#d97706"/>
+  <text x="2080" y="805" fill="#fff" font-size="24" font-weight="800" font-family="Segoe UI, Arial, sans-serif">Message</text>
+  <text x="2080" y="845" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="2080" y="871" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  sender_id → User</text>
+  <text x="2080" y="897" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  receiver_id → User</text>
+  <text x="2080" y="923" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    subject, body</text>
+  <text x="2080" y="949" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    is_read, deleted flags</text>
+</g>
+
+<!-- [AgendaEvent] -->
+<g filter="url(#shadow)">
+  <rect x="2060" y="1055" width="360" height="240" rx="14" fill="#fff" stroke="#fde68a" stroke-width="2.5"/>
+  <rect x="2060" y="1055" width="360" height="52" rx="14" fill="#d97706"/>
+  <rect x="2060" y="1093" width="360" height="14" fill="#d97706"/>
+  <text x="2080" y="1090" fill="#fff" font-size="22" font-weight="800" font-family="Segoe UI, Arial, sans-serif">AgendaEvent</text>
+  <text x="2080" y="1130" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="2080" y="1156" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  created_by → User</text>
+  <text x="2080" y="1182" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    title, event_date</text>
+  <text x="2080" y="1208" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    event_type</text>
+  <text x="2080" y="1234" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    target, FK target_class_id</text>
+</g>
+
+<!-- [Notification] -->
+<g filter="url(#shadow)">
+  <rect x="2060" y="1355" width="360" height="230" rx="14" fill="#fff" stroke="#fde68a" stroke-width="2.5"/>
+  <rect x="2060" y="1355" width="360" height="52" rx="14" fill="#d97706"/>
+  <rect x="2060" y="1393" width="360" height="14" fill="#d97706"/>
+  <text x="2080" y="1390" fill="#fff" font-size="24" font-weight="800" font-family="Segoe UI, Arial, sans-serif">Notification</text>
+  <text x="2080" y="1430" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">PK  id</text>
+  <text x="2080" y="1456" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">FK  user_id → User</text>
+  <text x="2080" y="1482" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    type, title, body</text>
+  <text x="2080" y="1508" fill="#1e293b" font-size="18" font-family="Segoe UI, Arial, sans-serif">    is_read, link</text>
+  <text x="2080" y="1534" fill="#94a3b8" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-style="italic">message/absence/note/fee/event</text>
+</g>
+
+<!-- Liens communication → User -->
+<path d="M 2060 590 L 1900 590 L 1400 320" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="7 4" marker-end="url(#arrowOrange)"/>
+<path d="M 2060 880 L 1900 880 L 1400 340" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="7 4" marker-end="url(#arrowOrange)"/>
+<path d="M 2060 1140 L 1900 1140 L 1400 360" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="7 4" marker-end="url(#arrowOrange)"/>
+<path d="M 2060 1440 L 1900 1440 L 1400 380" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="7 4" marker-end="url(#arrowOrange)"/>
+<text x="1720" y="580" fill="#b45309" font-size="14" font-family="Segoe UI, Arial, sans-serif">→ User</text>
+
+<!-- Note mise à jour -->
+<rect x="1860" y="190" width="500" height="280" rx="14" fill="#fef9c3" stroke="#fde047" stroke-width="2"/>
+<text x="1880" y="225" fill="#713f12" font-size="20" font-weight="800" font-family="Segoe UI, Arial, sans-serif">📌 Nouveautés v2 (juillet 2026)</text>
+<line x1="1880" y1="235" x2="2340" y2="235" stroke="#fde047" stroke-width="1.5"/>
+<text x="1890" y="262" fill="#78350f" font-size="17" font-family="Segoe UI, Arial, sans-serif">✅ Absence.subject_id maintenant utilisé</text>
+<text x="1890" y="288" fill="#78350f" font-size="17" font-family="Segoe UI, Arial, sans-serif">✅ UNIQUE (student_id, subject_id, date)</text>
+<text x="1890" y="314" fill="#78350f" font-size="17" font-family="Segoe UI, Arial, sans-serif">✅ Prof de cours : enregistre par séance</text>
+<text x="1890" y="340" fill="#78350f" font-size="17" font-family="Segoe UI, Arial, sans-serif">✅ Prof titulaire : justifie les absences</text>
+<text x="1890" y="366" fill="#78350f" font-size="17" font-family="Segoe UI, Arial, sans-serif">✅ Classes : 4 options (Sci/Lit/Com/Péd)</text>
+<text x="1890" y="392" fill="#78350f" font-size="17" font-family="Segoe UI, Arial, sans-serif">✅ FeePayment : currency + exchange_rate</text>
+<text x="1890" y="418" fill="#78350f" font-size="17" font-family="Segoe UI, Arial, sans-serif">✅ Un prof = titulaire d'UNE seule classe</text>
+</svg>

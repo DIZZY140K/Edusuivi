@@ -1,0 +1,37 @@
+sequenceDiagram
+    actor Admin as Administrateur
+    participant Browser as Navigateur (Admin)
+    participant Server as Serveur PHP (admin/fees.php)
+    participant DB as Base de Données (MySQL)
+    actor Parent as Parent (Notification)
+    
+    Admin->>Browser: Sélectionne l'élève & Clique sur "Enregistrer paiement"
+    Browser-->>Admin: Ouvre le modal de paiement
+    Admin->>Browser: Remplit le type de frais, montant, mode (Cash/M-Pesa...)
+    Admin->>Browser: Soumet le formulaire
+    
+    Browser->>Server: HTTP POST /admin/fees.php (action=pay, student_fee_id, amount_paid...)
+    Note over Server: requireRole('admin') & Validation du montant
+    
+    Server->>DB: INSERT INTO fee_payments (student_fee_id, student_id, amount_paid, payment_method, recorder_by...)
+    DB-->>Server: Confirmation (Paiement inséré)
+    
+    %% Notification du parent
+    Server->>DB: SELECT parent_id FROM students WHERE id = student_id
+    DB-->>Server: ID Parent (ex: 3)
+    
+    alt Le parent est associé
+        Server->>DB: INSERT INTO notifications (user_id, type, title, body, link)
+        DB-->>Server: Confirmation
+    end
+    
+    Server-->>Browser: HTTP 200 OK + Message ("Paiement enregistré")
+    Browser-->>Admin: Affiche le reçu de paiement généré
+    
+    %% Le parent consulte
+    Parent->>Browser: Se connecte ou actualise sa page (parent/index.php)
+    Browser->>Server: HTTP GET /api/notifications.php (via JS ou rechargement)
+    Server->>DB: SELECT * FROM notifications WHERE user_id=? AND is_read=0
+    DB-->>Server: Liste des notifications (incluant le paiement)
+    Server-->>Browser: Réponse JSON / HTML
+    Browser-->>Parent: Affiche une alerte/badge rouge + Détail: "Paiement enregistré: Reçu REC-..."

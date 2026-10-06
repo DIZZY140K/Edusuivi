@@ -1,0 +1,249 @@
+classDiagram
+    class User {
+        +int id
+        +string name
+        +string email
+        +string password
+        +string role
+        +string reset_token
+        +datetime reset_token_expiry
+        +timestamp created_at
+        +login()
+        +logout()
+        +resetPassword()
+    }
+
+    class UserPreference {
+        +int user_id
+        +string lang
+        +string theme
+        +bool notifications_enabled
+        +timestamp updated_at
+    }
+
+    class Student {
+        +int id
+        +string matricule
+        +string first_name
+        +string last_name
+        +date date_of_birth
+        +char gender
+        +string option_filiere
+        +string phone
+        +string address
+        +string photo
+        +string school_year
+        +int class_id
+        +int parent_id
+        +timestamp created_at
+        +timestamp updated_at
+        +getAverage()
+        +getRank()
+    }
+
+    class Class {
+        +int id
+        +string name
+        +string level
+        +int teacher_id
+        +int max_students
+        +string room
+        +string school_year
+    }
+
+    class Subject {
+        +int id
+        +string name
+    }
+
+    class TeacherAssignment {
+        +int id
+        +int teacher_id
+        +int class_id
+        +int subject_id
+    }
+
+    class Grade {
+        +int id
+        +int student_id
+        +int subject_id
+        +int teacher_id
+        +decimal grade
+        +decimal max_grade
+        +string period
+        +string comment
+        +timestamp created_at
+    }
+
+    class Absence {
+        +int id
+        +int student_id
+        +int subject_id
+        +date date
+        +bool justified
+        +string reason
+        +int recorded_by
+        +timestamp created_at
+    }
+
+    class Announcement {
+        +int id
+        +string title
+        +string content
+        +int author_id
+        +string target
+        +int target_class_id
+        +timestamp created_at
+    }
+
+    class Message {
+        +int id
+        +int sender_id
+        +int receiver_id
+        +string subject
+        +string body
+        +bool is_read
+        +bool is_deleted_sender
+        +bool is_deleted_receiver
+        +timestamp created_at
+    }
+
+    class AgendaEvent {
+        +int id
+        +string title
+        +string description
+        +string event_type
+        +date event_date
+        +time event_time
+        +date end_date
+        +string target
+        +int target_class_id
+        +int created_by
+        +timestamp created_at
+    }
+
+    class FeeType {
+        +int id
+        +string name
+        +decimal amount
+        +string description
+        +string school_year
+        +bool is_active
+    }
+
+    class StudentFee {
+        +int id
+        +int student_id
+        +int fee_type_id
+        +decimal amount_due
+        +string school_year
+        +timestamp created_at
+    }
+
+    class FeePayment {
+        +int id
+        +int student_fee_id
+        +int student_id
+        +decimal amount_paid
+        +string payment_method
+        +string transaction_ref
+        +date payment_date
+        +string receipt_number
+        +string notes
+        +int recorded_by
+        +timestamp created_at
+    }
+
+    class PaymentReminder {
+        +int id
+        +int student_id
+        +int student_fee_id
+        +timestamp sent_at
+        +int sent_by
+        +string method
+    }
+
+    class StudentRanking {
+        +int id
+        +int student_id
+        +int class_id
+        +string period
+        +string school_year
+        +decimal average
+        +int rank_position
+        +timestamp computed_at
+    }
+
+    class Notification {
+        +int id
+        +int user_id
+        +string type
+        +string title
+        +string body
+        +bool is_read
+        +string link
+        +timestamp created_at
+    }
+
+    class SmartAlert {
+        +int id
+        +string alert_type
+        +decimal threshold_value
+        +bool is_active
+        +timestamp created_at
+    }
+
+    class ActivityLog {
+        +int id
+        +int user_id
+        +string action
+        +string details
+        +string ip_address
+        +timestamp created_at
+    }
+
+    %% Relations d'association et d'héritage
+    User "1" -- "1" UserPreference : possède
+    User "1" -- "*" Student : est le parent de (si role='parent')
+    User "1" -- "*" Class : est le titulaire de (si role='teacher')
+    
+    Student "*" -- "1" Class : appartient à
+    Student "*" -- "1" User : a pour parent
+    
+    TeacherAssignment "*" -- "1" User : assigne Enseignant
+    TeacherAssignment "*" -- "1" Class : assigne Classe
+    TeacherAssignment "*" -- "1" Subject : assigne Matière
+    
+    Grade "*" -- "1" Student : concerne
+    Grade "*" -- "1" Subject : dans la matière
+    Grade "*" -- "1" User : attribuée par Enseignant
+    
+    Absence "*" -- "1" Student : concerne
+    Absence "*" -- "0..1" Subject : dans la matière (optionnel)
+    Absence "*" -- "1" User : enregistrée par (Enseignant/Admin)
+    
+    Announcement "*" -- "1" User : rédigée par
+    Announcement "*" -- "0..1" Class : ciblée pour (optionnel)
+    
+    Message "*" -- "1" User : envoyé par (sender)
+    Message "*" -- "1" User : reçu par (receiver)
+    
+    AgendaEvent "*" -- "1" User : créé par
+    AgendaEvent "*" -- "0..1" Class : ciblé pour
+    
+    StudentFee "*" -- "1" Student : assigné à
+    StudentFee "*" -- "1" FeeType : type de frais
+    
+    FeePayment "*" -- "1" StudentFee : paye la dette
+    FeePayment "*" -- "1" Student : pour l'élève
+    FeePayment "*" -- "1" User : enregistré par l'administrateur
+    
+    PaymentReminder "*" -- "1" Student : notifie
+    PaymentReminder "*" -- "1" StudentFee : concerne les frais
+    PaymentReminder "*" -- "1" User : envoyé par l'administrateur
+    
+    StudentRanking "*" -- "1" Student : concerne
+    StudentRanking "*" -- "1" Class : dans la classe
+    
+    Notification "*" -- "1" User : destinée à
+    ActivityLog "*" -- "0..1" User : déclenché par
